@@ -4,32 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>The Tech Blog</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Just Tech News</a>
-      </h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
+  <section>
+    <div class="hero is-primary">
+      <header class="hero-body">
+        <h1 class="title">
+          <a href="/">The Tech Blog</a>
+        </h1>
+        <nav class="subtitle">
+          {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <a id="logout" class="btn-no-style">Logout</a>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </header>
+    </div>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
+    {{#if loggedIn}}
+    <footer class="navbar is-primary columns is-centered">
+      <div class="is-align-self-center">
+        <a href="/dashboard" class="subtitle">
+          <button class="button is-light">Add a post!</button>
+        </a>
+      </div>
     </footer>
-  </div>
+    {{/if}}
+  </section>
   
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>

@@ -1,9 +1,8 @@
-<article class="post">
-  <div class="title">
-    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-    <span>({{post.post_url}})</span>
+<article class="card">
+  <div class="card-header has-background-grey-light">
+    <span class="card-header-title">{{post.title}}</span>
   </div>
-  <div class="meta">
+  <div class="card-content">
     {{post.vote_count}} point(s) by {{post.user.username}} on
     {{post.created_at}}
     |
@@ -18,12 +17,13 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit" class="button is-info">Add Comment</button>
+    <button type="button" class="button is-success">Upvote</button>
   </div>
 </form>
 {{/if}}
 
+<h1 class="title has-text-link">Comments:</h1>
 {{> comments post.comments}}
 
 {{#if loggedIn}}
